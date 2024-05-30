@@ -7,6 +7,7 @@ import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 
 import { Router } from '@angular/router';
+import { CustomHeaderComponent } from 'src/app/layouts';
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
@@ -22,6 +23,9 @@ export class HeaderComponent implements OnInit {
 
   @Input()
   title!: string;
+
+  @Input() 
+  customHeaders: CustomHeaderComponent[] = [];
 
   user: IUser | null = { email: '' };
 

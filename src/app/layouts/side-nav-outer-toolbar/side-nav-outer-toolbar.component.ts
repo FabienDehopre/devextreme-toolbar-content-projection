@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, NgModule, Input, ViewChild, QueryList, ContentChildren } from '@angular/core';
 import { SideNavigationMenuModule, HeaderModule } from '../../shared/components';
 import { ScreenService } from '../../shared/services';
 import { DxTreeViewTypes } from 'devextreme-angular/ui/tree-view';
@@ -7,6 +7,7 @@ import { DxScrollViewModule, DxScrollViewComponent } from 'devextreme-angular/ui
 import { CommonModule } from '@angular/common';
 
 import { Router, NavigationEnd } from '@angular/router';
+import { CustomHeaderComponent } from '../custom-header/custom-header.component';
 
 @Component({
   selector: 'app-side-nav-outer-toolbar',
@@ -15,6 +16,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class SideNavOuterToolbarComponent implements OnInit {
   @ViewChild(DxScrollViewComponent, { static: true }) scrollView!: DxScrollViewComponent;
+  @ContentChildren(CustomHeaderComponent) customHeaders!: QueryList<CustomHeaderComponent>;
   selectedRoute = '';
 
   menuOpened!: boolean;
@@ -89,6 +91,10 @@ export class SideNavOuterToolbarComponent implements OnInit {
       this.temporaryMenuOpened = true;
       this.menuOpened = true;
     }
+  }
+
+  getCustomHeaders(): CustomHeaderComponent[] {
+    return this.customHeaders.toArray();
   }
 }
 

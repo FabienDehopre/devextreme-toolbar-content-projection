@@ -18,6 +18,16 @@
       [text]="title">
     </dxi-item>
     <dxi-item
+      *ngFor="let customHeader of customHeaders"
+      [cssClass]="customHeader.cssClass ?? ''"
+      [disabled]="customHeader.disabled"
+      [locateInMenu]="customHeader.locateInMenu"
+      [location]="customHeader.location"
+      [visible]="customHeader.visible"
+    >
+      <ng-container *ngTemplateOutlet="customHeader.content" />
+    </dxi-item>
+    <dxi-item
       location="after"
       locateInMenu="auto"
       menuItemTemplate="menuItem">

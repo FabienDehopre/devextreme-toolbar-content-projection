@@ -2,7 +2,8 @@
   class="layout-header"
   [menuToggleEnabled]="true"
   (menuToggle)="menuOpened = !menuOpened;"
-  [title]="title">
+  [title]="title"
+  [customHeaders]="getCustomHeaders()">
 </app-header>
 
 <dx-drawer
