@@ -2,19 +2,25 @@
   <app-side-nav-outer-toolbar title="{{appInfo.title}}">
     <router-outlet></router-outlet>
     <app-footer>
-      Copyright © 2011-{{appInfo.currentYear}} {{appInfo.title}} Inc.
-      <br/>
-      All trademarks or registered trademarks are property of their respective owners.
+      <div>
+        Copyright © 2011-{{appInfo.currentYear}} {{appInfo.title}} Inc.
+        <br/>
+        All trademarks or registered trademarks are property of their respective owners.
+      </div>
+      <div>
+        <dx-button text="Toggle Header Button 1" (onClick)="toggleButton1()" />
+        <dx-button text="Toggle Header Button 2" (onClick)="toggleButton2()" />
+      </div>
     </app-footer>
     <app-custom-header>
       HELLO WORLD
     </app-custom-header>
-    @if (button1Visible) {
+    @if (button1Visible()) {
       <app-custom-header location="after" locateInMenu="auto">
         <dx-button text="Click me (1)" icon="info" />
       </app-custom-header>
     }
-    @if (button2Visible) {
+    @if (button2Visible()) {
       <app-custom-header location="after" locateInMenu="auto">
         <dx-button text="Click me (2)" icon="info" />
       </app-custom-header>

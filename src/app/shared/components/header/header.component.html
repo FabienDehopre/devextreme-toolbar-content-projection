@@ -25,7 +25,9 @@
       [location]="customHeader.location"
       [visible]="customHeader.visible"
     >
-      <ng-container *ngTemplateOutlet="customHeader.content" />
+      <div *dxTemplate>
+        <ng-container *ngTemplateOutlet="customHeader.content" />
+      </div>
     </dxi-item>
     <dxi-item
       location="after"

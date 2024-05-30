@@ -38,19 +38,3 @@
   </p>
 </div>
 </div>
-
-<dx-toolbar>
-  @if (showToolbarButton1()) {
-    <dxi-item>
-      <dx-button icon="info" text="Click Me (1)" />
-    </dxi-item>
-  }
-  @if (showToolbarButton2()) {
-    <dxi-item>
-      <dx-button icon="info" text="Click Me (2)" />
-    </dxi-item>
-  }
-</dx-toolbar>
-
-<dx-button text="Toggle Toolbar Button 1" (onClick)="toggleToolbarButton1Visibility()"></dx-button>
-<dx-button text="Toggle Toolbar Button 2" (onClick)="toggleToolbarButton2Visibility()"></dx-button>
