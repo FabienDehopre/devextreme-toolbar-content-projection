@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { Router, ActivatedRouteSnapshot } from '@angular/router';
 
 export interface IUser {
   email: string;
@@ -119,7 +119,7 @@ export class AuthService {
 }
 
 @Injectable()
-export class AuthGuardService implements CanActivate {
+export class AuthGuardService  {
   constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
