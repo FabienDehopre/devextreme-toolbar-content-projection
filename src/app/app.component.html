@@ -9,6 +9,16 @@
     <app-custom-header>
       HELLO WORLD
     </app-custom-header>
+    @if (button1Visible) {
+      <app-custom-header location="after" locateInMenu="auto">
+        <dx-button text="Click me (1)" icon="info" />
+      </app-custom-header>
+    }
+    @if (button2Visible) {
+      <app-custom-header location="after" locateInMenu="auto">
+        <dx-button text="Click me (2)" icon="info" />
+      </app-custom-header>
+    }
   </app-side-nav-outer-toolbar>
 </ng-container>
 

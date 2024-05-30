@@ -26,6 +26,7 @@ import { DxButtonModule } from 'devextreme-angular';
     UnauthenticatedContentModule,
     AppRoutingModule,
     CustomHeaderModule,
+    DxButtonModule,
   ],
   providers: [
     AuthService,
