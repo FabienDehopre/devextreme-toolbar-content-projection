@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   templateUrl: 'home.component.html',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
-  constructor() {}
+  readonly showToolbarButton1 = signal(true);
+  readonly showToolbarButton2 = signal(true);
+
+  toggleToolbarButton1Visibility(): void {
+    this.showToolbarButton1.update(value => !value);
+  }
+
+  toggleToolbarButton2Visibility(): void {
+    this.showToolbarButton2.update(value => !value);
+  }
 }
