@@ -91,10 +91,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "content-projection-issue:build:production"
+              "buildTarget": "content-projection-issue:build:production"
             },
             "development": {
-              "browserTarget": "content-projection-issue:build:development"
+              "buildTarget": "content-projection-issue:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -102,7 +102,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "content-projection-issue:build"
+            "buildTarget": "content-projection-issue:build"
           }
         },
         "test": {
