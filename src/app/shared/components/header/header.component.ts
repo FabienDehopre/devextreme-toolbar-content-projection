@@ -8,6 +8,10 @@ import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 
 import { Router } from '@angular/router';
 import { CustomHeaderComponent } from 'src/app/layouts';
+import { ItemRenderedEvent } from 'devextreme/ui/toolbar';
+
+const STATIC_ITEMS_BEFORE_PROJECTED_ITEMS = 2;
+
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
@@ -24,7 +28,7 @@ export class HeaderComponent implements OnInit {
   @Input()
   title!: string;
 
-  @Input() 
+  @Input()
   customHeaders: CustomHeaderComponent[] = [];
 
   user: IUser | null = { email: '' };
@@ -52,6 +56,18 @@ export class HeaderComponent implements OnInit {
 
   toggleMenu = () => {
     this.menuToggle.emit();
+  }
+
+  onItemRendered({ itemIndex, itemElement }: ItemRenderedEvent): void {
+    const customHeadersCount = this.customHeaders.length;
+    if (
+      itemIndex >= STATIC_ITEMS_BEFORE_PROJECTED_ITEMS &&
+      itemIndex < customHeadersCount + STATIC_ITEMS_BEFORE_PROJECTED_ITEMS &&
+      // this query find all DX widgets that are empty inside the current toolbar item
+      itemElement.querySelectorAll('[class*="dx-widget"]:empty').length > 0
+    ) {
+      this.customHeaders[itemIndex - STATIC_ITEMS_BEFORE_PROJECTED_ITEMS].refresh();
+    }
   }
 }
 

@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit, signal } from '@angular/core';
 import { AuthService, ScreenService, AppInfoService } from './shared/services';
+import { DxButtonComponent } from 'devextreme-angular';
 
 @Component({
   selector: 'app-root',
@@ -26,5 +27,10 @@ export class AppComponent {
 
   toggleButton2(): void {
     this.button2Visible.update((value) => !value);
+  }
+
+  repaintButton(button: DxButtonComponent, index: number) {
+    console.log(`SHOULD REPAINT BUTTON ${index}`, button);
+    button.instance.repaint();
   }
 }

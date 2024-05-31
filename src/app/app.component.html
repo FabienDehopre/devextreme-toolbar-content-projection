@@ -16,13 +16,13 @@
       HELLO WORLD
     </app-custom-header>
     @if (button1Visible()) {
-      <app-custom-header location="after" locateInMenu="auto">
-        <dx-button text="Click me (1)" icon="info" />
+      <app-custom-header location="after" locateInMenu="auto" (dxRepaintRequired)="repaintButton(button1, 1)">
+        <dx-button #button1 text="Click me (1)" icon="info" />
       </app-custom-header>
     }
     @if (button2Visible()) {
-      <app-custom-header location="after" locateInMenu="auto">
-        <dx-button text="Click me (2)" icon="info" />
+      <app-custom-header location="after" locateInMenu="auto" (dxRepaintRequired)="repaintButton(button2, 2)">
+        <dx-button #button2 text="Click me (2)" icon="info" />
       </app-custom-header>
     }
   </app-side-nav-outer-toolbar>

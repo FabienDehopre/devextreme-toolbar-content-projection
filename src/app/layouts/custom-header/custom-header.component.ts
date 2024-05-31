@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, TemplateRef, Input, ViewChild, NgModule } from '@angular/core';
+import { ChangeDetectionStrategy, Component, TemplateRef, Input, ViewChild, NgModule, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-custom-header',
@@ -13,6 +13,11 @@ export class CustomHeaderComponent {
   @Input() location: 'after' | 'before' | 'center' = 'center';
   @Input() visible = true;
   @ViewChild('content', { static: true }) content!: TemplateRef<any>;
+  @Output() readonly dxRepaintRequired = new EventEmitter<void>();
+
+  refresh(): void {
+    this.dxRepaintRequired.emit();
+  }
 }
 
 @NgModule({
@@ -20,4 +25,4 @@ export class CustomHeaderComponent {
   declarations: [ CustomHeaderComponent ],
   exports: [ CustomHeaderComponent ]
 })
-export class CustomHeaderModule { }
+export class CustomHeaderModule {}

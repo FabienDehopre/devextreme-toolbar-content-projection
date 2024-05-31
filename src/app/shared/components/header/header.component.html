@@ -1,5 +1,5 @@
 <header>
-  <dx-toolbar class="header-toolbar">
+  <dx-toolbar class="header-toolbar" (onItemRendered)="onItemRendered($event)">
     <dxi-item
       *ngIf="menuToggleEnabled"
       location="before"
